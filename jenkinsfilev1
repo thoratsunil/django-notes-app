@@ -28,8 +28,14 @@ pipeline {
             steps {
                 echo "Deploying the container"
                 sh "docker-compose down && docker-compose up -d"
-                
-            }
+              {
         }
+         stage("email notification"){
+            steps {
+                echo "Sending Email Notification"
+                sh "mail to: "vistaemailservice@gmail.com,subject: Test Email,body:Test"
+                }
+        }
+
     }
 }
